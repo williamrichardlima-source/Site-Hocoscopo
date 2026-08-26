@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#101b32">
+	<meta name="description" content="Oráculo do Dia — escolha seu signo e descubra sua leitura diária, com um toque pessoal a partir da sua data de nascimento.">
+	<title>Oráculo do Dia</title>
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23101a31'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23e7be70'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="stars" aria-hidden="true"></div>
+	<div class="deep-shade" aria-hidden="true"></div>
+	<main class="app-shell">
+		<header class="topbar">
+			<a class="brand" href="#inicio" aria-label="Oráculo do Dia">
+				<span class="brand-mark">✦</span>
+				<span>oráculo <b>do dia</b></span>
+			</a>
+			<nav class="page-navs" aria-label="Navegação das seções">
+				<a class="date-pill page-nav" href="#sign-section"><span class="live-dot"></span><span>seu signo</span><b>↓</b></a>
+				<a class="date-pill page-nav birth-nav" href="#birth-section"><span class="live-dot"></span><span>signo de nascimento</span><b>↓</b></a>
+			</nav>
+		</header>
+
+		<section class="hero" id="inicio">
+			<div class="hero-copy">
+				<p class="eyebrow">seu mapa, sua maré</p>
+				<h1>O céu tem uma<br><em>mensagem</em> para você.</h1>
+				<p class="intro">Escolha seu signo e descubra o que o universo preparou para o seu dia.</p>
+				<div class="trust-line"><span>✧</span> leitura renovada todos os dias</div>
+			</div>
+			<div class="moon-art" aria-hidden="true">
+				<div class="moon"><span></span></div>
+				<span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
+				<span class="spark spark-one">✦</span><span class="spark spark-two">✧</span><span class="spark spark-three">·</span>
+			</div>
+		</section>
+
+		<section class="sign-section" id="sign-section" aria-labelledby="sign-title">
+			<div class="section-heading"><div><p class="eyebrow">01 / escolha seu signo</p><h2 id="sign-title">Por onde as estrelas te chamam?</h2></div><span class="zodiac-count">12 signos</span></div>
+			<div class="sign-grid" id="sign-grid"></div>
+		</section>
+
+		<section class="reading" id="reading" aria-live="polite">
+			<div class="reading-heading">
+				<div class="reading-symbol" id="reading-symbol">♈</div>
+				<div><p class="eyebrow">02 / sua leitura de hoje</p><h2 id="reading-title">Seu céu está esperando</h2></div>
+				<span class="reading-date" id="reading-date">24 AGO 2026</span>
+			</div>
+			<div class="reading-body">
+				<span class="forecast-label">sua mensagem do dia</span>
+				<p class="forecast" id="forecast">Selecione um signo acima para abrir sua previsão.</p>
+				<div class="details-grid" id="details-grid" hidden>
+					<div class="detail"><span class="detail-label">energia</span><strong id="energy"></strong><div class="meter"><i id="energy-meter"></i></div></div>
+					<div class="detail"><span class="detail-label">número da sorte</span><strong id="lucky-number"></strong><small>uma frequência para hoje</small></div>
+					<div class="detail"><span class="detail-label">cor que te guia</span><strong class="color-value"><i id="color-dot"></i><span id="lucky-color"></span></strong><small>use ou mantenha por perto</small></div>
+					<div class="detail"><span class="detail-label">melhor momento</span><strong id="best-time"></strong><small>quando agir com intenção</small></div>
+				</div>
+			</div>
+			<div class="reading-footer"><span id="advice">Seu ritual começa com uma escolha.</span><button id="new-reading" type="button" hidden>↻ <span>nova leitura</span></button></div>
+		</section>
+
+		<section class="birth-section reading" id="birth-section" aria-labelledby="birth-section-title">
+			<div class="reading-heading">
+				<div class="reading-symbol">✦</div>
+				<div><p class="eyebrow">03 / toque pessoal</p><h2 id="birth-section-title">Sua data de nascimento</h2></div>
+				<span class="reading-date">SEU CICLO</span>
+			</div>
+			<div class="reading-body birth-body">
+				<p class="birth-intro">Informe sua data para deixar a leitura ainda mais pessoal.</p>
+				<div class="birth-form">
+					<label for="birth-date">Data de nascimento</label>
+					<span class="date-control"><input id="birth-date" type="date" aria-describedby="birth-hint"><b>⌄</b></span>
+					<small id="birth-hint">Usamos o dia e o mês para revelar seu ciclo.</small>
+					<button id="confirm-birth" type="button">Confirmar data</button>
+					<span class="birth-loading" id="birth-loading" hidden>lendo seu futuro...</span>
+					<strong id="birth-display">sua data aparecerá aqui</strong>
+					<small id="birth-cycle">confirme para revelar seu ciclo</small>
+				</div>
+				<p class="birth-note" id="birth-note" hidden></p>
+			</div>
+		</section>
+		<footer class="site-footer">
+			<div class="footer-inner">
+				<div class="footer-brand"><span class="footer-mark">✦</span><span>oráculo <b>do dia</b></span></div>
+				<div class="footer-message"><strong>olhe para dentro.</strong><span>o futuro é uma conversa</span></div>
+				<div class="footer-meta"><span>feito para você</span><span class="footer-line"></span><span>2026</span></div>
+			</div>
+		</footer>
+	</main>
+	<div class="card-modal" id="card-modal" hidden>
+		<div class="modal-backdrop" data-close-modal></div>
+		<section class="card-dialog" role="dialog" aria-modal="true" aria-labelledby="card-title">
+			<button class="modal-close" id="close-modal" type="button" aria-label="Fechar janela">×</button>
+			<span class="demo-badge">simulação — nada é cobrado</span>
+			<p class="eyebrow">um último ritual</p>
+			<h2 id="card-title">Ative sua leitura de sorte</h2>
+			<p class="modal-price">R$ 10,00</p>
+			<p class="modal-copy">Simulação visual: nenhum pagamento será realizado e nenhum dado será salvo.</p>
+			<div class="payment-tabs" role="tablist" aria-label="Forma de pagamento"><button class="payment-tab active" id="card-tab" type="button" role="tab" aria-selected="true">Cartão</button><button class="payment-tab" id="pix-tab" type="button" role="tab" aria-selected="false">Pix</button></div>
+			<div class="demo-card" aria-hidden="true"><span>ORÁCULO</span><strong>✦</strong><small>LEITURA DE NASCIMENTO</small></div>
+			<form id="card-form" autocomplete="off">
+				<label>Número do cartão<input type="text" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" required></label>
+				<label>Nome no cartão<input type="text" placeholder="SEU NOME" required></label>
+				<div class="card-row"><label>Validade<input type="text" maxlength="5" placeholder="MM/AA" required></label><label>CVV<input type="password" inputmode="numeric" maxlength="4" placeholder="•••" required></label></div>
+				<button class="modal-submit" type="submit">Continuar por R$ 10,00 <span>→</span></button>
+			</form>
+			<div class="pix-panel" id="pix-panel" hidden><div class="demostrativo-qr" aria-label="QR Code demonstrativo"></div><strong>Pix demonstrativo</strong><p>Use este QR apenas para visualizar a experiência.</p><button class="copy-pix" id="copy-pix" type="button">Copiar código Pix</button></div>
+		</section>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
